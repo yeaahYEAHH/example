@@ -22,7 +22,9 @@ massive = {
     "random animal": "Banana Shark"
 },
 resultlist = [],
-animals = ['Кот', 'Рыба', 'Лемур', 'Комодский варан'];
+animals = ['Кот', 'Рыба', 'Лемур', 'Комодский варан'],
+alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+word = "";
 
 
 function nurse1(ranBodyParts, ranAdjs, ranWords, ranIndex, result){
@@ -92,29 +94,40 @@ function removeList(listbegin,listend){
 
 // removeList(animals, resultlist)
 
-let alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+function randomString(alphabet, word){
+    let i, symphol;
+    for(i = 0; i < 6; i++){
+        symphol = Math.floor(Math.random() * alphabet.length);
+        word += alphabet[symphol];
+    }
+//     while(i < 6){
+//        symphol = Math.floor(Math.random() * alphabet.length);
+//        word += alphabet[symphol];
+//        i++
+//  }
+    alert(word)
+}
+
+// randomString(alphabet, word)
 
 
-
-
-
-// var input="javasript is awesome";
-// var output = "";
-// for (var i=0; i<input.length; i++){
-//     if (input[i]=="a"){
-//         output=output+4;
-//     }
-//      else if (input[i]=="e"){
-//         output=output+3;
-//     }
-//     else if (input[i]=="i"){
-//         output=output+1;
-//     }
-//     else if(input[i]=="o"){
-//         output=output+0;
-//     }
-//     else{
-//         output=output+input[i];
-//     }
-// }
-// console.log(output);
+var input="javasript is awesome";
+var output = "";
+for (var i=0; i<input.length; i++){
+    if (input[i]=="a"){
+        output=output+4;
+    }
+     else if (input[i]=="e"){
+        output=output+3;
+    }
+    else if (input[i]=="i"){
+        output=output+1;
+    }
+    else if(input[i]=="o"){
+        output=output+0;
+    }
+    else{
+        output=output+input[i];
+    }
+}
+console.log(output);
