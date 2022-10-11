@@ -1,20 +1,21 @@
 let words = [
-    "программа",
-    "макака",
-    "компьютер",
-    "клавиатура"],
+"программа","макака",
+"компьютер","клавиатура",
+"чепух", "ааааа"],
 word = words[Math.floor(Math.random() * words.length)],
 answerArray = [], 
-remainingLetters = word.length;;
+remainingLetters = word.length,
+limit = word.length,
+hit = false;
 
-word.split().forEach(function(item, i){
-    answerArray[i] = '_';
-})
+for(let i = 0; i < word.length; i++){
+    answerArray[i] = "_";
+}
 
-while (remainingLetters > 0) {
+while (remainingLetters > 0  && limit > 0) {
     alert(answerArray.join(" "));
     let guess = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
-    guess = guess.toLocaleLowerCase;
+
     if (guess === null) {
     break;
     } 
@@ -22,13 +23,24 @@ while (remainingLetters > 0) {
     alert("Пожалуйста, введите одичную букву.");
     } 
     else {
-    for (let j = 0; j < word.length; j++) {
-        if (word[j] === guess) {
-            answerArray[j] = guess;
-            remainingLetters--;
+        guess = guess.toLocaleLowerCase();
+        for (let j = 0; j < word.length; j++) {
+
+            if (word[j] === guess) {
+                hit = true;
+                answerArray[j] = guess;
+                remainingLetters--;
+            }
+        }
+
+        if(!hit){
+            limit--;
+            alert("Осталось " + limit + " попыток");
+            if(limit === 0){
+                alert("Попытки закончились");
             }
         }
     }
-}``
+}
 alert(answerArray.join(" "));
-alert("Отлично! Было загадано слово " + word);
+alert("Было загадано слово " + word);
