@@ -1,13 +1,12 @@
-$('html').click(function(e){
-    $('#title').offset({
-        left: e.pageX,
-        top: e.pageY
-    })
-})
+// $('html').click(function(e){
+//     $('#title').offset({
+//         left: e.pageX,
+//         top: e.pageY
+//     })
+// })
 let letft = 0,
 topt = 0,
 move = function(){
-
     $('#title-blind').offset({
         left: letft,
         top: topt,
@@ -24,4 +23,14 @@ move = function(){
     }
 
 }
-setInterval(move, 1);
+// let moveaq = setInterval(move, 1);
+// $('#title-blind').click(function(){
+//     clearInterval(moveaq);
+// })
+$('#title-blind').click(function(){
+    setInterval(move, 0.2);
+    count++;
+    if(count > 10){
+        alert("win");
+    }
+})
