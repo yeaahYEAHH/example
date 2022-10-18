@@ -102,17 +102,30 @@ while (remainingLetters > 0  && limit > 0) {
         if(!hit){
             limit--;
             alert("Осталось " + limit + " попыток");
-            if(true){
-                
-                headDraw();
-                ctx.stroke();
-                
+            if((limit*100/percent) <= 100){    
+                headDraw();  
+            }
+            if((limit*100/percent) <= 90){    
+                bodyDraw();
+            }
+            if((limit*100/percent) <= 80){    
+                armDraw();  
+            }
+            if((limit*100/percent) <= 60){    
+                legDraw();  
+            }
+            if((limit*100/percent) <= 40){    
+                standDraw();  
+            }
+            if((limit*100/percent) <= 20){    
+                ropeDraw();  
             }
             
-            // else if(limit === 0){
-            //     alert("Попытки закончились");
-            // }
+            else if(limit === 0){
+                alert("Попытки закончились");
+            }
         }
+        ctx.stroke();
     }
 
 }
@@ -120,8 +133,4 @@ while (remainingLetters > 0  && limit > 0) {
 
 alert(answerArray.join(" "));
 alert("Было загадано слово " + word);
-    
-
-
-
 
